@@ -1,0 +1,79 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>Reactix</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&amp;subset=latin-ext" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/style/concert-search.css}">
+</head>
+
+<body th:data-artist-id="${artist.id}">
+    <div class="container">
+        <header>
+            <a class="logo-anchor" th:href="@{/}">
+                <img th:src="@{/image/reactix-logo-light-bg-no-top.png}" />
+            </a>
+            <div class="header-right">
+                <a class="header-link" th:href="@{/}">
+                    Előadók
+                </a>
+                <a class="header-link" th:href="@{/}">
+                    Helyszínek
+                </a>
+                <a class="header-link" th:href="@{/}">
+                    Bejelentkezés
+                </a>
+            </div>
+        </header>
+        <div class="artist-image-container" th:style="'background-image: url(' + @{${artist.assets.get('concertSearchImage')}} +');'">
+            <div class="upcoming-heading">
+                Következő <span th:text="${artist.name}" th:remove="tag"></span> koncertek
+            </div>
+        </div>
+        <div class="concerts-container">
+                <div th:each="concert: ${concerts}" class="concert-card" th:data-concert-id="${concert.id}">
+                <div class="concert-date-wrapper">
+                    <div class="concert-date">
+                        <div class="month" th:text="${#temporals.monthNameShort(concert.time)}">
+                        </div>
+                        <div class="day" th:text="${#temporals.day(concert.time)}">
+                        </div>
+                    </div>
+                </div>
+                <div class="concert-description">
+                    <div class="concert-title" th:text="${concert.title}">
+                    </div>
+                    <div class="concert-venue" th:text="${concert.venue.location} + ', ' + ${concert.venue.name}">
+                    </div>
+                </div>
+                <div class="tickets-sold">
+                    <div class="count">
+                        0
+                    </div>
+                    <div class="sold-text">
+                        <div>
+                            jegy eladva
+                        </div>
+                        <div>
+                            mióta böngészel.
+                        </div>
+                    </div>
+                </div>
+                <a class="ticket-button" th:href="@{'/concerts/' + ${concert.id}}">
+                    <span>
+                        Jegyek
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script async th:src="@{/script/concert-search.js}"></script>
+</body>
+
+</html>

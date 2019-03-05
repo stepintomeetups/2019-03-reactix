@@ -1,0 +1,199 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1180px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 125px;
+    padding-top: 35px;
+    padding-bottom: 10px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.logo-anchor {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 200px;
+}
+
+.logo-anchor > img {
+    width: 100%;
+}
+
+.header-right {
+    flex-basis: 40%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-link {
+    color: #41099b;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.artist-image-container {
+    position: relative;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 450px;
+    width: 100%;
+
+    background-position: 0 20%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.artist-image-container::after {
+    position: absolute;
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    box-shadow: inset 0px 11px 20px -5px rgba(0, 0, 0, 0.777), inset 0px -11px 20px -5px rgba(0, 0, 0, 0.777);
+}
+
+.upcoming-heading {
+    position: absolute;
+    font-size: 2rem;
+    background-color: #20044dCC;
+    color: white;
+    font-weight: 300;
+    width: 100%;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    padding-left: calc((100% - 1180px) * 0.5);
+    padding-right: calc((100% - 1180px) * 0.5);
+    bottom: 0;
+    left: 0;
+}
+
+.concerts-container {
+    padding: 25px 0;
+    flex: 1;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1180px;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 30px;
+    grid-template-rows: 90px;
+    grid-auto-rows: 90px;
+}
+
+.concert-card {
+    width: 100%;
+    height: 100%;
+    box-shadow: 3px 5px 5px 2px #777777;
+    display: flex;
+}
+
+.concert-date-wrapper {
+    flex-shrink: 0;
+    flex-grow: 0;
+    flex-basis: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.concert-date > .month {
+    font-size: 16px;
+    line-height: 16px;
+    text-align: center;
+    color: #20044d;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.concert-date > .day {
+    font-size: 28px;
+    line-height: 30px;
+    color: #20044d;
+    font-weight: 300;
+    text-align: center;
+}
+
+.concert-description {
+    flex: 1;
+    padding: 10px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.concert-title {
+    font-size: 1.43rem;
+}
+
+.concert-venue {
+    font-size: 1.33rem;
+    font-weight: 300;
+}
+
+.tickets-sold {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    background-color: #41099b;
+    color: white;
+    font-variant: small-caps;
+}
+
+.tickets-sold > .count {
+    font-size: 3.5rem;
+    font-weight: 300;
+}
+
+.tickets-sold > .sold-text {
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+    padding-left: 7px;
+}
+
+.ticket-button {
+    flex-shrink: 0;
+    flex-grow: 0;
+    padding: 25px;
+    color: white;
+    font-size: 1.45rem;
+    background-color: #20044d;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 300;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.ticket-button > div {
+    pointer-events: none;
+}

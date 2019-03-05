@@ -1,0 +1,23 @@
+spring:
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.mongo.embedded.EmbeddedMongoAutoConfiguration
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: reactix
+
+    thymeleaf:
+      cache: false
+
+logging:
+  level:
+    org.springframework.data: debug
+
+tracking:
+  kafka:
+    bootstrap-server: localhost:9092
+    client-id: reactix-consumer-01
+    group-id: reactix-group-01
+    auto-offset-reset: latest
+    acks: all

@@ -1,0 +1,52 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>Reactix</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&amp;subset=latin-ext" rel="stylesheet"> 
+    <link rel="stylesheet" th:href="@{/style/landing.css}">
+</head>
+
+<body>
+    <div class="landing-wrapper">
+        <div class="container">
+            <header>
+                <a class="logo-anchor" th:href="@{/}">
+                    <img th:src="@{/image/reactix-logo-light-bg-no-top.png}" />
+                </a>
+                <div class="header-right">
+                    <a class="header-link" th:href="@{/}">
+                        Előadók
+                    </a>
+                    <a class="header-link" th:href="@{/}">
+                        Helyszínek
+                    </a>
+                    <a class="header-link" th:href="@{/}">
+                        Bejelentkezés
+                    </a>
+                </div>
+            </header>
+            <div class="artist-search-container">
+                <input type="text" class="artist-search-input" placeholder="Életed koncertje...">
+            </div>
+            <div class="search-feed">
+            </div>
+        </div>
+    </div>
+
+    <template id="artist-search-card">
+        <div class="search-feed-container">
+            <div class="bg-img"></div>
+            <div class="search-feed-item-title"></div>
+        </div>
+    </template>
+
+    <script async th:src="@{/script/landing.js}"></script>
+</body>
+
+</html>
