@@ -13,3 +13,11 @@ services:
       environment:
         - ADVERTISED_PORT=9092
         - ADVERTISED_HOST=localhost
+
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    hostname: mongo
+    expose:
+      - "27017"
